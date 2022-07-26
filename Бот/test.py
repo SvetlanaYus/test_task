@@ -38,7 +38,7 @@ while a == 1:
             time_2 = ''.join(time_2)
             time_2 = time_2.split('.')
             time_2 = time_2[0]
-            if int(time_2) - int(time) < 100:
+            if int(time_2) - int(time) < 1000:
                 if second_query in GOOD:
                     print('Хорошо, когда настреоние всегда на высоте!',my_id)
                 elif second_query in BAD:
@@ -71,7 +71,7 @@ while a == 1:
                 elif second_query in BAD:
                     print('А ну не раскисать')
                 elif second_query in ANGRY:
-                    print('Не думал я, что разгвооры со мной так влияют на настреоние...',my_id)
+                    print('Не думал я, что разговоры со мной так влияют на настреоние...',my_id)
                 else:
                     print('Совсем перестал понимать человека',my_id)
                     my_id = uniqueid()
@@ -103,9 +103,3 @@ while a == 1:
     else:
         print('Не понимаю Вас совсем, но здравствуйте',my_id)
         my_id = uniqueid()
-
-       
-        
-        
-
-
