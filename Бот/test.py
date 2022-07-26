@@ -3,12 +3,13 @@ import uuid
 import datetime
 
 
-id = []
+# id = []
 # print(my_id)
 # print(emoji.demojize('😬'))
-time = str(datetime.datetime.now())[11:]
-time = time.split(':')
-# print(time)
+# time = str(datetime.datetime.now())[11:]
+# time = time.split(':')
+
+
 
 GOOD = [':grinning_face:', ':grinning_face_with_big_eyes:', ':grinning_face_with_smiling_eyes:', ':beaming_face_with_smiling_eyes:']
 BAD = [':unamused_face:', ':disappointed_face:']
@@ -21,7 +22,9 @@ while a == 1:
     message_dem = emoji.demojize(message)
     time = str(datetime.datetime.now())[11:]
     time = time.split(':')
-    # print(time)
+    time = ''.join(time)
+    time = time.split('.')
+    time = time[0]
     if message_dem in GOOD:
         print('Привет! Как хорошо, когда у человека хорошее настроение!')
         try:
@@ -29,22 +32,44 @@ while a == 1:
             second_query = emoji.demojize(second_query)
             time_2 = str(datetime.datetime.now())[11:]
             time_2 = time_2.split(':')
-            for i in range(len(time)):
-                # print(time_2, int(time_2[1]), int(time[1]))
-                if int(time_2[1]) - int(time[1]) <= 1:
-                    if second_query in GOOD:
-                        print('Хорошо, когда настреоние всегда на высоте!')
-                    elif second_query in BAD:
-                        print('Переменчивое у Вас настроение')
-                    elif second_query in ANGRY:
-                        print('Думаю, Вам стоит помедитировать, вся злость испарится')
-                    else:
-                        print('Совсем не понимаю людей')
+            time_2 = ''.join(time_2)
+            time_2 = time_2.split('.')
+            time_2 = time_2[0]
+            if int(time_2) - int(time) < 100:
+                if second_query in GOOD:
+                    print('Хорошо, когда настреоние всегда на высоте!')
+                elif second_query in BAD:
+                    print('Переменчивое у Вас настроение')
+                elif second_query in ANGRY:
+                    print('Думаю, Вам стоит помедитировать, вся злость испарится')
+                else:
+                    print('Совсем не понимаю людей')
+            
         except second_query is None:
             print('Конец')
 
     elif message_dem in BAD:
         print('Привет! Видимо, у Вас что-то стряслось. Не грустите')
+        try:
+            second_query = input()
+            second_query = emoji.demojize(second_query)
+            time_2 = str(datetime.datetime.now())[11:]
+            time_2 = time_2.split(':')
+            time_2 = ''.join(time_2)
+            time_2 = time_2.split('.')
+            time_2 = time_2[0]
+            if int(time_2) - int(time) < 100:
+                if second_query in GOOD:
+                    print('Вау! Я рад, что Вы стали бодрее')
+                elif second_query in BAD:
+                    print('А ну не раскисать')
+                elif second_query in ANGRY:
+                    print('Не думал я, что разгвооры со мной так влияют на настреоние...')
+                else:
+                    print('Совсем перестал понимать человека')
+            
+        except second_query is None:
+            print('Конец')
     elif message_dem in ANGRY:
         print('Ну привет, человек не в настроении')
         try:
@@ -52,17 +77,19 @@ while a == 1:
             second_query = emoji.demojize(second_query)
             time_2 = str(datetime.datetime.now())[11:]
             time_2 = time_2.split(':')
-            for i in range(len(time)):
-                if int(time_2[1]) - int(time[1]) <= 1:
-                    if second_query in GOOD:
-                        print('У людей всегда настроение поднимается, когда со мной поговорят')
-                    elif second_query in BAD:
-                        print('Эх, веселее Вы не стали..')
-                    elif second_query in ANGRY:
-                        a = 'Медитация - вот выход'
-                        print(a)
-                    else:
-                        print('Совесем перестал людей понимать')
+            time_2 = ''.join(time_2)
+            time_2 = time_2.split('.')
+            time_2 = time_2[0]
+            if int(time_2) - int(time) < 100:
+                if second_query in GOOD:
+                    print('У людей всегда настроение поднимается, когда со мной поговорят')
+                elif second_query in BAD:
+                    print('Эх, веселее Вы не стали..')
+                elif second_query in ANGRY:
+                    print('Медитация - вот выход')
+                else:
+                    print('Совсем перестал людей понимать')
+                    
         except second_query is None:
             print('Конец')
     else:
