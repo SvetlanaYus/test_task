@@ -46,7 +46,7 @@ while a == 1:
                     print('Совсем не понимаю людей')
             
         except second_query is None:
-            print('Конец')
+            my_id = uuid.uuid1()
 
     elif message_dem in BAD:
         print('Привет! Видимо, у Вас что-то стряслось. Не грустите')
@@ -69,7 +69,7 @@ while a == 1:
                     print('Совсем перестал понимать человека')
             
         except second_query is None:
-            print('Конец')
+            my_id = uuid.uuid1()
     elif message_dem in ANGRY:
         print('Ну привет, человек не в настроении')
         try:
@@ -91,9 +91,9 @@ while a == 1:
                     print('Совсем перестал людей понимать')
                     
         except second_query is None:
-            print('Конец')
+            my_id = uuid.uuid1()
     else:
-        print('Не понимаю Вас совсем')
+        print('Не понимаю Вас совсем, но здравствуйте')
         my_id = uuid.uuid1() # or uuid.uuid4()
 
        
